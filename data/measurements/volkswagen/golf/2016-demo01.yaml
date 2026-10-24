@@ -1,0 +1,22 @@
+schema: 1
+demo: true
+vehicle:
+  make: volkswagen
+  model: Golf
+  generation: Mk7
+  year: 2016
+  paint_type: metallic
+condition: factory
+notes: "Synthetic example record shipped with the repository. Not a real measurement."
+readings:  # µm, one entry per measured spot
+  hood: [118, 121, 116]
+  roof: [112, 115, 110]
+  trunk: [117, 120]
+  fender_fl: [124, 122]
+  fender_fr: [121, 125]
+  door_fl: [127, 124, 126]
+  door_fr: [125, 128, 123]
+  door_rl: [122, 126]
+  door_rr: [124, 121]
+  quarter_rl: [119, 123]
+  quarter_rr: [121, 118]

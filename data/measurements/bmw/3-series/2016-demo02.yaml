@@ -1,0 +1,22 @@
+schema: 1
+demo: true
+vehicle:
+  make: bmw
+  model: 3 Series
+  generation: F30
+  year: 2016
+  paint_type: solid
+condition: unknown
+notes: "Synthetic example record shipped with the repository. Not a real measurement."
+readings:  # µm, one entry per measured spot
+  hood: [121, 124]
+  roof: [118, 116]
+  trunk: [123, 120]
+  fender_fl: [126, 128]
+  fender_fr: [127, 125]
+  door_fl: [130, 128]
+  door_fr: [129, 131]
+  door_rl: [127, 125]
+  door_rr: [126, 128]
+  quarter_rl: [124, 122]
+  quarter_rr: [123, 125]

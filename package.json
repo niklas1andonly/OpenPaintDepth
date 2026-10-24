@@ -1,0 +1,46 @@
+{
+  "name": "openpaintdepth",
+  "version": "0.1.0",
+  "description": "Open, community-built database of factory car paint thickness — per make, model, year and panel. Plus a repaint & filler checker that works offline.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "OpenPaintDepth contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niklas1andonly/OpenPaintDepth.git"
+  },
+  "keywords": [
+    "car-detailing",
+    "paint-thickness",
+    "paint-depth-gauge",
+    "open-data",
+    "used-cars",
+    "repaint-detection"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.ts",
+    "build:db": "node scripts/build-db.ts",
+    "dev": "npm run build:db && vite",
+    "build": "npm run validate && npm run build:db && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "yaml": "^2.9.1"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0"
+  }
+}

@@ -1,0 +1,67 @@
+# Canonical list of makes. `vehicle.make` in a measurement must be one of these slugs.
+# Missing a make? Add it here in the same pull request (keep the list alphabetical).
+- { slug: abarth, name: Abarth }
+- { slug: acura, name: Acura }
+- { slug: alfa-romeo, name: Alfa Romeo }
+- { slug: alpine, name: Alpine }
+- { slug: aston-martin, name: Aston Martin }
+- { slug: audi, name: Audi }
+- { slug: bentley, name: Bentley }
+- { slug: bmw, name: BMW }
+- { slug: buick, name: Buick }
+- { slug: byd, name: BYD }
+- { slug: cadillac, name: Cadillac }
+- { slug: chevrolet, name: Chevrolet }
+- { slug: chrysler, name: Chrysler }
+- { slug: citroen, name: Citroën }
+- { slug: cupra, name: Cupra }
+- { slug: dacia, name: Dacia }
+- { slug: dodge, name: Dodge }
+- { slug: ds, name: DS }
+- { slug: ferrari, name: Ferrari }
+- { slug: fiat, name: Fiat }
+- { slug: ford, name: Ford }
+- { slug: genesis, name: Genesis }
+- { slug: gmc, name: GMC }
+- { slug: honda, name: Honda }
+- { slug: hyundai, name: Hyundai }
+- { slug: infiniti, name: Infiniti }
+- { slug: jaguar, name: Jaguar }
+- { slug: jeep, name: Jeep }
+- { slug: kia, name: Kia }
+- { slug: lamborghini, name: Lamborghini }
+- { slug: lancia, name: Lancia }
+- { slug: land-rover, name: Land Rover }
+- { slug: lexus, name: Lexus }
+- { slug: lincoln, name: Lincoln }
+- { slug: lotus, name: Lotus }
+- { slug: lucid, name: Lucid }
+- { slug: maserati, name: Maserati }
+- { slug: mazda, name: Mazda }
+- { slug: mclaren, name: McLaren }
+- { slug: mercedes-benz, name: Mercedes-Benz }
+- { slug: mg, name: MG }
+- { slug: mini, name: MINI }
+- { slug: mitsubishi, name: Mitsubishi }
+- { slug: nio, name: NIO }
+- { slug: nissan, name: Nissan }
+- { slug: opel, name: Opel }
+- { slug: peugeot, name: Peugeot }
+- { slug: polestar, name: Polestar }
+- { slug: porsche, name: Porsche }
+- { slug: ram, name: Ram }
+- { slug: renault, name: Renault }
+- { slug: rivian, name: Rivian }
+- { slug: rolls-royce, name: Rolls-Royce }
+- { slug: saab, name: Saab }
+- { slug: seat, name: SEAT }
+- { slug: skoda, name: Škoda }
+- { slug: smart, name: smart }
+- { slug: subaru, name: Subaru }
+- { slug: suzuki, name: Suzuki }
+- { slug: tesla, name: Tesla }
+- { slug: toyota, name: Toyota }
+- { slug: vauxhall, name: Vauxhall }
+- { slug: volkswagen, name: Volkswagen }
+- { slug: volvo, name: Volvo }
+- { slug: xpeng, name: XPeng }

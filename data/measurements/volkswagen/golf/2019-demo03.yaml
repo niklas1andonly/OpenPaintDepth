@@ -1,0 +1,23 @@
+schema: 1
+demo: true
+vehicle:
+  make: volkswagen
+  model: Golf
+  generation: Mk7
+  year: 2019
+  paint_type: metallic
+condition: unknown
+repaired_panels: [door_rr]
+notes: "Synthetic example record shipped with the repository. Not a real measurement."
+readings:  # µm, one entry per measured spot
+  hood: [124, 120]
+  roof: [116, 119]
+  trunk: [121, 125]
+  fender_fl: [128, 126]
+  fender_fr: [127, 130]
+  door_fl: [131, 129]
+  door_fr: [130, 127]
+  door_rl: [126, 128]
+  door_rr: [214, 236, 221]
+  quarter_rl: [124, 121]
+  quarter_rr: [125, 122]

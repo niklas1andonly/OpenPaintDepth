@@ -1,0 +1,22 @@
+schema: 1
+demo: true
+vehicle:
+  make: toyota
+  model: Corolla
+  generation: E210
+  year: 2020
+  paint_type: pearl
+condition: factory
+notes: "Synthetic example record shipped with the repository. Not a real measurement."
+readings:  # µm, one entry per measured spot
+  hood: [92, 95]
+  roof: [86, 89]
+  trunk: [91, 94]
+  fender_fl: [97, 99]
+  fender_fr: [96, 98]
+  door_fl: [101, 99]
+  door_fr: [100, 102]
+  door_rl: [98, 96]
+  door_rr: [97, 99]
+  quarter_rl: [94, 92]
+  quarter_rr: [93, 95]

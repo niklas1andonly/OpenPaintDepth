@@ -1,0 +1,13 @@
+{
+  "name": "OpenPaintDepth",
+  "short_name": "PaintDepth",
+  "description": "Open factory paint thickness data and an offline repaint checker.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f0ea",
+  "theme_color": "#f2f0ea",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

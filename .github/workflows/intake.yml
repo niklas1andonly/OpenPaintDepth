@@ -1,0 +1,63 @@
+# Turns measurement issues (submitted from the web app or the issue template) into pull requests.
+# The issue body is untrusted: it is only read by scripts/intake.ts from the event file and
+# never interpolated into a shell command.
+name: Submission intake
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: intake-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  intake:
+    if: github.event.issue.state == 'open' && contains(github.event.issue.body, 'openpaintdepth:submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - id: intake
+        run: node scripts/intake.ts
+
+      - name: Explain what is wrong
+        if: steps.intake.outputs.status == 'invalid'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: gh issue comment "$ISSUE" --body-file intake-comment.md
+
+      - name: Open or update the pull request
+        if: steps.intake.outputs.status == 'valid'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          FILE: ${{ steps.intake.outputs.file }}
+        run: |
+          BRANCH="submission/issue-$ISSUE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add -- "$FILE"
+          git commit -m "Add measurement from #$ISSUE"
+          git push --force origin "$BRANCH"
+
+          if [ -n "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            gh issue comment "$ISSUE" --body "✅ Updated the pull request with your edited data."
+          else
+            printf 'Adds `%s` from #%s.\n\nValidated automatically by the intake workflow.\n\nCloses #%s\n' "$FILE" "$ISSUE" "$ISSUE" > pr-body.md
+            gh pr create --head "$BRANCH" --base "${{ github.event.repository.default_branch }}" \
+              --title "Add measurement from #$ISSUE" --body-file pr-body.md
+            gh issue comment "$ISSUE" --body "✅ Thanks! Your measurement is valid. A pull request is open and will be merged by a maintainer soon."
+          fi

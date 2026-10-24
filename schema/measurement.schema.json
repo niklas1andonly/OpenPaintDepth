@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/niklas1andonly/OpenPaintDepth/schema/measurement.schema.json",
+  "title": "OpenPaintDepth measurement",
+  "description": "Paint thickness readings of one car. All readings are total paint thickness in micrometres (µm).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "vehicle", "condition", "readings"],
+  "properties": {
+    "schema": { "const": 1 },
+    "demo": {
+      "type": "boolean",
+      "description": "Synthetic example record. Excluded from real statistics."
+    },
+    "vehicle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["make", "model", "year"],
+      "properties": {
+        "make": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Make slug from data/makes.yaml, e.g. volkswagen."
+        },
+        "model": { "type": "string", "minLength": 1, "maxLength": 60, "description": "Model name as printed by the maker, e.g. Golf, 3 Series." },
+        "generation": { "type": "string", "maxLength": 30, "description": "Generation / chassis code, e.g. Mk7, F30, E210." },
+        "year": { "type": "integer", "minimum": 1950, "maximum": 2100 },
+        "paint_type": { "enum": ["solid", "metallic", "pearl", "matte"] },
+        "color": { "type": "string", "maxLength": 60 },
+        "paint_code": { "type": "string", "maxLength": 20 },
+        "market": { "type": "string", "maxLength": 30, "description": "Sales region, e.g. EU, US, JP." }
+      }
+    },
+    "condition": {
+      "enum": ["factory", "unknown"],
+      "description": "factory = paint is known to be original (new car or documented history). unknown = no known history."
+    },
+    "repaired_panels": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/panel" },
+      "description": "Panels known or strongly suspected to be refinished. Excluded from reference statistics."
+    },
+    "substrate": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/panel" },
+      "additionalProperties": { "enum": ["steel", "aluminium", "plastic", "composite"] }
+    },
+    "gauge": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "brand": { "type": "string", "maxLength": 40 },
+        "model": { "type": "string", "maxLength": 40 }
+      }
+    },
+    "measured_on": { "type": "string", "format": "date" },
+    "contributor": { "type": "string", "maxLength": 60 },
+    "notes": { "type": "string", "maxLength": 1000 },
+    "readings": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "$ref": "#/$defs/panel" },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 30,
+        "items": { "type": "number", "exclusiveMinimum": 0, "maximum": 5000 }
+      }
+    }
+  },
+  "$defs": {
+    "panel": {
+      "enum": [
+        "hood", "roof", "trunk",
+        "fender_fl", "fender_fr",
+        "door_fl", "door_fr", "door_rl", "door_rr",
+        "quarter_rl", "quarter_rr",
+        "pillar_l", "pillar_r",
+        "sill_l", "sill_r"
+      ]
+    }
+  }
+}

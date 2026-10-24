@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0d1117"/>
+  <path d="M10 42a22 22 0 0 1 44 0" fill="none" stroke="#30363d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M10 42a22 22 0 0 1 9-17.8" fill="none" stroke="#3fb950" stroke-width="6" stroke-linecap="round"/>
+  <path d="M24.5 21.3a22 22 0 0 1 15 0" fill="none" stroke="#d29922" stroke-width="6" stroke-linecap="round"/>
+  <path d="M45 24.2A22 22 0 0 1 54 42" fill="none" stroke="#f85149" stroke-width="6" stroke-linecap="round"/>
+  <path d="M32 42 42 27" stroke="#e6edf3" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="42" r="5" fill="#e6edf3"/>
+  <text x="32" y="58" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#8b949e">µm</text>
+</svg>
